@@ -42,7 +42,7 @@ app.use((0, _cors.default)({
     credentials: true,
     origin: [
         "https://limo-service-admin-react-x7dx.vercel.app",
-        "https://limo-services.vercel.app"
+        "https://atelanta-limo-i7ykupcao-yosef781227.vercel.app"
     ]
 }));
 app.use((0, _cookieparser.default)());
