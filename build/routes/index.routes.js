@@ -30,8 +30,8 @@ router.use("/book", _bookroutes.default);
 router.use("/user", (0, _error.catchAsync)(_auth.isAuth), _userroutes.default);
 router.use("/vehicle", _vehicleroutes.default);
 router.post("/mail", async (req, res)=>{
-    const { to , name , email , phone , message  } = req.body;
-    await (0, _mail.sendMail)(to, {
+    const { name , email , phone , message  } = req.body;
+    await (0, _mail.sendMail)({
         name,
         email,
         phone,

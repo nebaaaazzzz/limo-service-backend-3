@@ -14,7 +14,7 @@ function _interop_require_default(obj) {
         default: obj
     };
 }
-async function sendMail(to, body) {
+async function sendMail(body) {
     let transporter = _nodemailer.default.createTransport({
         host: process.env.EMAIL_HOST,
         port: 587,
@@ -26,7 +26,7 @@ async function sendMail(to, body) {
     });
     await transporter.sendMail({
         from: process.env.EMAIL,
-        to,
+        to: process.env.TO_EMAIL,
         subject: "Contact information",
         text: "Hello world?",
         html: `
