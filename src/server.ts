@@ -14,22 +14,25 @@ const PORT = process.env.PORT || 3030;
 (async () => {
   try {
     await User.create({
-     data :{
+      data: {
         email: "neba@gmail.com",
         lastName: "Daniel",
         firstName: "Nebiyu",
         // password: "123456",
         password:
           "$2a$10$Bl4Y5US/Gh2bOn6GchivH.GUjKcbEp.h9q8gHaEenpoJ1GMDgLlmi",
-     }
-      
+      },
     });
   } catch (e: any) {
     console.log(e.message);
   }
 })();
 const app = express();
+app.use(express.static(path.join(__dirname, "static")));
 app.use(express.static(path.join(__dirname, "uploads")));
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname + "/static/index.html"));
+});
 app.use(express.json());
 app.use(
   cors({
